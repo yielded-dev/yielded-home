@@ -91,6 +91,28 @@ class WorkspaceTest(unittest.TestCase):
         self.assertEqual(edited.read_text(), "local work\n")
         self.assertEqual(self.git(worktree, "branch", "--show-current"), "work-in-progress")
 
+    def test_vite_commands_select_the_checkout_package_manager(self):
+        self.command("bootstrap")
+        checkout = self.workspace / "repos/agent"
+        catalog = self.workspace / "repos.toml"
+        catalog.write_text(catalog.read_text()
+                           .replace('["python3", "prepare.py"]', '["vp", "install", "--frozen-lockfile"]')
+                           .replace('["python3", "check.py"]', '["vp", "run", "ready"]'))
+        bin_dir = self.base / "bin"
+        bin_dir.mkdir()
+        vp = bin_dir / "vp"
+        vp.write_text('#!/bin/sh\nprintf "%s\\n" "$@" > invoked-args\n')
+        vp.chmod(0o755)
+        self.env["PATH"] = str(bin_dir) + os.pathsep + self.env["PATH"]
+        for action, pin, args in [
+            ("setup", "bun@1.4.2", ["install", "--frozen-lockfile"]),
+            ("check", "bun@1.4.4", ["run", "ready"]),
+        ]:
+            (checkout / "package.json").write_text(json.dumps({"packageManager": pin}))
+            self.command(action, "agent")
+            self.assertEqual((checkout / "invoked-args").read_text().splitlines(),
+                             ["env", "exec", "--package-manager", pin, "--", "vp", *args])
+
     def test_refuses_wrong_repository_and_nested_directory_before_install(self):
         self.command("bootstrap")
         clone = self.workspace / "repos/agent"

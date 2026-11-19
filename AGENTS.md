@@ -20,7 +20,7 @@ Use this repo to find the owner of a change and coordinate work across the publi
 
 ## Public libraries
 
-Merging changes into a public library or publishing a release requires explicit user confirmation or unmistakable advance permission covering that repository and action. This includes version PRs, changesets and work delegated to another agent. Permission for a consuming application applies to that application alone. When authority is ambiguous, prepare the reviewable change and ask before merging or publishing.
+Merging changes into a public library or publishing a release requires explicit user confirmation or unmistakable advance permission covering that repository and action. This includes merging changeset or version PRs and actions taken by delegated agents. Permission for a consuming application applies to that application alone. When authority is ambiguous, prepare the reviewable change and ask before merging or publishing.
 
 ## Agent settings
 

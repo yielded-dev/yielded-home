@@ -2,6 +2,7 @@
 """Clone, prepare, inspect and check the repositories in a Yielded workspace."""
 
 import argparse
+import json
 from pathlib import Path
 import re
 import shlex
@@ -110,6 +111,14 @@ def inspect_checkout(path, expected_remote):
 
 
 def run(command, cwd, dry_run):
+    # Vite+ in system-first mode can otherwise run an older Bun against the lockfile.
+    if command[0] == "vp":
+        manager = "<packageManager from package.json>"
+        if cwd.exists() or not dry_run:
+            with (cwd / "package.json").open() as manifest:
+                manager = json.load(manifest).get("packageManager")
+        if isinstance(manager, str) and manager:
+            command = ["vp", "env", "exec", "--package-manager", manager, "--", *command]
     print(f"  $ {shlex.join(command)}", flush=True)
     if not dry_run:
         subprocess.run(command, cwd=cwd, check=True)

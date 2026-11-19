@@ -13,7 +13,7 @@ Start here to work across Yielded’s public repositories. This repo maps each p
 
 ## Get started
 
-The home scripts use Git and Python 3.11 or newer. For the default `agent` and `auth` checkouts, install Vite+ and a Node.js version supported by the components. Vite+ uses the Bun version selected by each checkout. [Vite+ guide](https://viteplus.dev/guide/)
+The home scripts use Git and Python 3.11 or newer. For the default `agent` and `auth` checkouts, install the global Vite+ CLI and a supported Node.js version. The scripts read the Bun pin from each checkout’s `package.json` and select it with `vp env exec` for setup and checks. This also works when your shell prefers a different system Bun. [Vite+ environment guide](https://viteplus.dev/guide/env)
 
 ```sh
 git clone https://github.com/yielded-dev/yielded-home.git
