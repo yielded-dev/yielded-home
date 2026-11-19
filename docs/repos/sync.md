@@ -1,0 +1,5 @@
+# Sync
+
+Sync owns the contracts and runtimes that synchronize application state. Start in `packages/sync` for the protocol and public API. Browser, IndexedDB, persistence and Cloudflare implementations have their own packages. The list-board example demonstrates a client and a local Worker together. [Source](https://github.com/yielded-dev/sync) · [Public API boundaries](https://github.com/yielded-dev/sync/blob/main/docs/PUBLIC_API.md) · [List-board example](https://github.com/yielded-dev/sync/tree/main/examples/list-board)
+
+Run `./scripts/setup sync` to install dependencies and the Chromium build used by the IndexedDB tests. On a minimal Linux installation, the component CI shows how to install Chromium’s system dependencies. `./scripts/check sync` runs `vp run ready` in the order the workspace needs, including building packages before typechecking and checking packed consumers. [Contributor instructions](https://github.com/yielded-dev/sync/blob/main/AGENTS.md) · [Toolchain](https://github.com/yielded-dev/sync/blob/main/docs/TOOLCHAIN.md) · [CI](https://github.com/yielded-dev/sync/blob/main/.github/workflows/ci.yml)

@@ -1,0 +1,13 @@
+/repos/
+/repos.local.toml
+/.worktrees/
+/.local/
+/.expect/
+/.claude/settings.local.json
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.envrc

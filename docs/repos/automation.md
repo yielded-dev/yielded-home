@@ -1,0 +1,5 @@
+# Automation
+
+The Automation package handles events, decisions and host authorization. The Sandbox package prepares repositories, runs a selected agent harness and recovers interrupted workspaces. Both live in this checkout. [Source](https://github.com/yielded-dev/automation) · [Package boundaries](https://github.com/yielded-dev/automation/blob/main/docs/architecture.md) · [Contributor instructions](https://github.com/yielded-dev/automation/blob/main/AGENTS.md)
+
+Put PostgreSQL server tools on `PATH`. The integration fixture starts a disposable local cluster and needs `initdb`, `pg_ctl`, `psql` and `postgres`. Run `./scripts/setup automation` followed by `./scripts/check automation`. The check runs the repository’s static, build and test gate, its Automation end-to-end suite and its packaged-consumer check. The fixture guide describes additional Docker coverage for Sandbox. [Development commands](https://github.com/yielded-dev/automation#development) · [Native fixtures](https://github.com/yielded-dev/automation/blob/main/test/README.md)
