@@ -9,7 +9,6 @@ Use this repo to find the owner of a change and coordinate work across the publi
 | Realtime protocol, sync clients or server adapters | [Sync](docs/repos/sync.md) |
 | Event decisions, sandbox execution or recovery | [Automation](docs/repos/automation.md) |
 | Landing page, hosted sign-in service or shared docs theme | [Site](docs/repos/site.md) |
-| Effect diagnostic rules, compiler integration or native CLI | [Effect Diagnostics](docs/repos/effect-tsrs.md) |
 
 ## Working in components
 

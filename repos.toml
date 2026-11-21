@@ -3,8 +3,7 @@
 core = ["agent", "auth"]
 libraries = ["agent", "auth", "sync", "automation"]
 web = ["site"]
-tooling = ["effect-tsrs"]
-all = ["agent", "auth", "sync", "automation", "site", "effect-tsrs"]
+all = ["agent", "auth", "sync", "automation", "site"]
 
 [repos.agent]
 remote = "https://github.com/yielded-dev/agent.git"
@@ -52,11 +51,3 @@ guide = "docs/repos/site.md"
 tools = ["vp", "node"]
 setup = [["vp", "install", "--frozen-lockfile"]]
 checks = [["vp", "run", "ready"]]
-
-[repos.effect-tsrs]
-remote = "https://github.com/yielded-dev/effect-tsrs.git"
-role = "Effect diagnostics implemented in Rust, the CLI and Oxlint integration"
-guide = "docs/repos/effect-tsrs.md"
-tools = ["node", "npm", "rustup", "cargo", "cc", "cmake"]
-setup = [["npm", "ci", "--ignore-scripts"], ["npm", "run", "setup"]]
-checks = [["npm", "run", "check"], ["npm", "test"]]
