@@ -9,7 +9,6 @@ Start here to work across Yielded’s public repositories. This repo maps each p
 | [sync](docs/repos/sync.md) | Realtime synchronization contracts, client and server runtimes, and platform adapters |
 | [automation](docs/repos/automation.md) | Event-driven automation and durable agent workspaces |
 | [site](docs/repos/site.md) | The Yielded landing page, hosted sign-in application and shared docs theme |
-| [effect-tsrs](docs/repos/effect-tsrs.md) | The Rust implementation of Effect diagnostics, its CLI and Oxlint integration |
 
 ## Get started
 
@@ -35,7 +34,7 @@ Paths resolve from `yielded-home`. Absolute paths and `~/` paths work too. Boots
 
 ## Select repositories
 
-Every command accepts repo names or one named profile. The default `core` profile selects Agent and Auth. `libraries` adds Sync and Automation, `web` selects Site, `tooling` selects Effect Diagnostics, and `all` selects all six. Each component guide lists its extra prerequisites.
+Every command accepts repo names or one named profile. The default `core` profile selects Agent and Auth. `libraries` adds Sync and Automation, `web` selects Site, and `all` selects all five. Each component guide lists its extra prerequisites.
 
 ```sh
 ./scripts/bootstrap --profile all --dry-run   # preview every clone or reuse
